@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitBash | Command Your Code</title>
+  <style>
+    :root {
+      --bg: #0a0f1a;
+      --panel: #101a2b;
+      --text: #dce8ff;
+      --muted: #93a8cf;
+      --accent: #00e58b;
+      --accent-2: #66b2ff;
+      --line: #1f2e4d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 15% -10%, rgba(102, 178, 255, 0.2), transparent 45%),
+        radial-gradient(circle at 80% 0%, rgba(0, 229, 139, 0.12), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .btn {
+      color: var(--bg);
+      background: linear-gradient(90deg, var(--accent), #6dffb8);
+      border: 0;
+      border-radius: 999px;
+      padding: 0.65rem 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .hero {
+      padding: 4.5rem 0 3.5rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.1;
+      margin: 0 0 1rem;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .hero-actions {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .terminal {
+      background: linear-gradient(180deg, #12203a 0%, #0c1424 100%);
+      border: 1px solid #27406e;
+      border-radius: 16px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+    }
+
+    .terminal-top {
+      padding: 0.6rem 0.8rem;
+      border-bottom: 1px solid #27406e;
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .dot.red { background: #ff6b6b; }
+    .dot.yellow { background: #ffd93d; }
+    .dot.green { background: #6bff95; }
+
+    pre {
+      margin: 0;
+      padding: 1rem 1.1rem 1.25rem;
+      color: #d9f6ff;
+      font-family: Consolas, "Courier New", monospace;
+      line-height: 1.55;
+      font-size: 0.95rem;
+      white-space: pre-wrap;
+    }
+
+    .cmd {
+      color: var(--accent);
+    }
+
+    .features {
+      padding: 1rem 0 4.5rem;
+    }
+
+    .cards {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 14px;
+      padding: 1rem;
+    }
+
+    .card h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1rem;
+      color: var(--accent-2);
+    }
+
+    .card p {
+      font-size: 0.95rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 1.2rem 0 2rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">Git<span>Bash</span></div>
+      <a class="btn secondary" href="#features">Explore Features</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Ship Faster with a Terminal That Speaks Git Fluently</h1>
+        <p>
+          GitBash is your command-line launchpad for cleaner commits, safer branching, and
+          smoother collaboration. Build, branch, merge, and deploy with confidence.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#features">Get Started</a>
+          <a class="btn secondary" href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">Learn Git</a>
+        </div>
+      </div>
+
+      <article class="terminal" aria-label="GitBash terminal preview">
+        <div class="terminal-top">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+<pre><span class="cmd">$ git status</span>
+On branch feature/homepage
+Changes ready to commit:
+  new file: index.html
+
+<span class="cmd">$ git commit -m "Design engaging GitBash homepage"</span>
+[feature/homepage 8f3ab2a] Homepage complete ✨
+
+<span class="cmd">$ git push</span>
+Everything up-to-date. Time to ship.</pre>
+      </article>
+    </section>
+
+    <section class="features" id="features">
+      <h2>Why developers love GitBash</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>⚡ Fast Workflow</h3>
+          <p>Move from idea to commit in seconds with keyboard-first control and clear feedback.</p>
+        </article>
+        <article class="card">
+          <h3>🛡️ Safe Collaboration</h3>
+          <p>Keep your team in sync with reliable branching, rebasing, and merge confidence.</p>
+        </article>
+        <article class="card">
+          <h3>🚀 Release Ready</h3>
+          <p>From local dev to production deploys, GitBash helps you ship cleanly every time.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Built for curious developers. Powered by Git discipline.
+  </footer>
+</body>
+</html>
